@@ -48,7 +48,6 @@ def generate_tcp_zero_checksum(tcp_data):
 def make_tcp_even_length(tcp_zero_checksum):
   if len(tcp_zero_checksum) % 2 == 1:
     tcp_zero_checksum += b'\x00'
-
   return tcp_zero_checksum
 
 # compute checksum from pseudo header and tcp data
