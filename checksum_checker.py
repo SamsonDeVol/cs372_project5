@@ -71,11 +71,11 @@ def get_match_status(calc_csum, tcp_csum):
 
 # run a comparison for given text and dat file
 def run_checksum_comp(text_file, dat_file):
-  file = open_read_text_file('tcp_data/tcp_addrs_{}.txt'.format(i))
+  file = open_read_text_file(text_file)
   source, dest = get_source_and_dest_addr(file)
   source_addr_bytes = addr_to_bytestring(source)
   dest_addr_bytes = addr_to_bytestring(dest)
-  tcp_data, tcp_length = open_read_dat_file('tcp_data/tcp_data_{}.dat'.format(i))
+  tcp_data, tcp_length = open_read_dat_file(dat_file)
   pseudo_header = generate_ip_pseudo_header(source_addr_bytes, dest_addr_bytes, tcp_length)
   tcp_checksum = get_tcp_checksum(tcp_data)
   tcp_zero_checksum = generate_tcp_zero_checksum(tcp_data)
